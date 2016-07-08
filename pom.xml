@@ -7,7 +7,7 @@
     <packaging>jar</packaging>
     <name>jfinal-plus</name>
     <description>jfinal-plus is a express tools.</description>
-    <url></url>
+    <url>https://github.com/gumutianqi/jfinal-plus.git</url>
 
     <licenses>
         <license>
