@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true" scanPeriod="60 seconds">
+    <contextName>BEATS-ORANGE</contextName>
+    <!-- 声明变量 -->
+    <property name="log.filename" value="jfinal_app"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] |-%-5level in %logger{80}-%line - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/${log.filename}.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] |-%-5level in %logger{80}-%line - %msg%n</pattern>
+        </encoder>
+        <!--日志文件最大的大小 -->
+        <!--<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">-->
+        <!--<MaxFileSize>100MB</MaxFileSize>-->
+        <!--</triggeringPolicy>-->
+    </appender>
+
+    <appender name="ERR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/${log.filename}.error.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] |-%-5level in %logger{80}-%line - %msg%n</pattern>
+        </encoder>
+        <!--日志文件最大的大小 -->
+        <!--<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">-->
+        <!--<MaxFileSize>100MB</MaxFileSize>-->
+        <!--</triggeringPolicy>-->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter"><!-- 只打印错误日志 -->
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <logger name="org.eclipse.jetty" level="WARN"/>
+    <logger name="net.sf.ehcache" level="INFO"/>
+    <logger name="org.apache.commons.beanutils" level="INFO"/>
+    <logger name="org.apache.shiro" level="WARN"/>
+    <logger name="org.quartz.core" level="WARN"/>
+    <logger name="org.mongodb.driver" level="WARN"/>
+    <logger name="com.jfinal.ext.route.AutoBindRoutes" level="INFO"/>
+    <logger name="com.jfinal.ext.plugin.tablebind.AutoTableBindPlugin2" level="INFO"/>
+
+    <!-- Online level set INFO -->
+    <logger name="net.oschina.j2cache" level="DEBUG"/>
+    <logger name="com.loop" level="DEBUG"/>
+
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT"/>
+        <!--<appender-ref ref="FILE"/>-->
+        <!--<appender-ref ref="ERR_FILE"/>-->
+    </root>
+</configuration>
