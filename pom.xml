@@ -75,6 +75,7 @@
         <druid.version>1.0.22</druid.version>
         <jedis.version>2.8.1</jedis.version>
         <mongodb.version>3.2.2</mongodb.version>
+        <mongodb-plugin.version>1.0.4</mongodb-plugin.version>
 
         <!-- Aliyun -->
         <aliyun.oss.version>2.2.3</aliyun.oss.version>
@@ -328,6 +329,17 @@
             <groupId>org.mongodb</groupId>
             <artifactId>mongo-java-driver</artifactId>
             <version>${mongodb.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cybermkd</groupId>
+            <artifactId>MongodbPlugin</artifactId>
+            <version>${mongodb-plugin.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>cn.dreampie</groupId>
+                    <artifactId>resty-common</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!-- Aliyun -->
         <dependency>
