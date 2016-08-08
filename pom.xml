@@ -54,7 +54,7 @@
         <beetlsql.version>2.4.2</beetlsql.version>
         <antisamy.version>1.5.3</antisamy.version>
         <ehcache.version>2.6.11</ehcache.version>
-        <shiro.version>1.2.5</shiro.version>
+        <shiro.version>1.3.0</shiro.version>
         <quartz.version>2.2.3</quartz.version>
 
         <!-- Commons Lib -->
@@ -72,10 +72,10 @@
         <jdbc.driver.groupId>mysql</jdbc.driver.groupId>
         <jdbc.driver.artifactId>mysql-connector-java</jdbc.driver.artifactId>
         <jdbc.driver.version>6.0.3</jdbc.driver.version>
-        <druid.version>1.0.22</druid.version>
-        <jedis.version>2.8.1</jedis.version>
-        <mongodb.version>3.2.2</mongodb.version>
-        <mongodb-plugin.version>1.0.4</mongodb-plugin.version>
+        <druid.version>1.0.24</druid.version>
+        <jedis.version>2.9.0</jedis.version>
+        <mongodb.version>3.3.0</mongodb.version>
+        <mongodb-plugin.version>1.0.5</mongodb-plugin.version>
 
         <!-- Aliyun -->
         <aliyun.oss.version>2.2.3</aliyun.oss.version>
