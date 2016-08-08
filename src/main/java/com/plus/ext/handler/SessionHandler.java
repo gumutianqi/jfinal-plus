@@ -7,13 +7,16 @@ import javax.servlet.http.HttpServletResponse;
 
 public class SessionHandler extends Handler {
 
+    /**
+     * From 如梦技术 改良
+     */
+    @Override
     public void handle(String target, HttpServletRequest request, HttpServletResponse response, boolean[] isHandled) {
-
-        Integer index = target.indexOf(";jsessionid".toUpperCase());
-
-        if (index != -1)
-            target = target.substring(0, index);
-
+        // L.cm update by 2014-08-06 更精准的判断
+        boolean isFromURL = request.isRequestedSessionIdFromURL();
+        if (isFromURL) {
+            target = target.substring(0, target.indexOf(';'));
+        }
         next.handle(target, request, response, isHandled);
     }
 }
